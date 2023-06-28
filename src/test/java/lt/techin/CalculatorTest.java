@@ -1,6 +1,5 @@
 package lt.techin;
 
-import lt.techin.utils.RandomUtils;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,7 +17,10 @@ public class CalculatorTest extends BaseTest {
         loginPage.setPassword("User123");
         loginPage.login();
 
-        calculatorPage.calculateSum();
+        calculatorPage.setNumber1("10");
+        calculatorPage.setNumber2("15");
+        calculatorPage.setOperation("+");
+        calculatorPage.calculate();
         assertEquals("Skaičiuoti", driver.getTitle());
 
     }
@@ -33,7 +35,7 @@ public class CalculatorTest extends BaseTest {
         loginPage.login();
 
 
-        calculatorPage.calculateSum();
+        calculatorPage.calculate();
         assertEquals("Skaičiuoti", driver.getTitle());
     }
 
