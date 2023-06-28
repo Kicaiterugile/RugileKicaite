@@ -13,7 +13,10 @@ public class CalculatorPage extends AbstractPage {
     private WebElement calculate;
 
     @FindBy(xpath = "//input[@name='zenklas']")
-            private WebElement operationDivision;
+            private WebElement operatorChose;
+
+    @FindBy (css = "#sk1")
+    private WebElement firstNumberToEnter;
 
     public CalculatorPage(WebDriver driver) {
         super(driver);
@@ -26,6 +29,6 @@ public class CalculatorPage extends AbstractPage {
         calculate.click();
     }
     public void devision(){
-        operationDivision.click();
+        operatorChose.click();
     }
 }

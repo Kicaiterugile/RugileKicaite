@@ -31,7 +31,7 @@ public class CalculatorTest extends BaseTest {
         loginPage.setUserName("User5089");
         loginPage.setPassword("User123");
         loginPage.login();
-
+calculatorPage.devision();
 
         calculatorPage.calculateSum();
         assertEquals("Skaičiuoti", driver.getTitle());
