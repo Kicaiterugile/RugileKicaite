@@ -3,6 +3,7 @@ package lt.techin;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CalculatorTest extends BaseTest {
 
@@ -33,10 +34,12 @@ public class CalculatorTest extends BaseTest {
         loginPage.setUserName("User5089");
         loginPage.setPassword("User123");
         loginPage.login();
-calculatorPage.devision();
-
+        calculatorPage.setNumber1("-1");
+        calculatorPage.setNumber2("-1");
+        calculatorPage.setOperation("/");
         calculatorPage.calculate();
-        assertEquals("Skaičiuoti", driver.getTitle());
+        assertTrue(calculatorPage.hasErrors());
+
     }
 
     }

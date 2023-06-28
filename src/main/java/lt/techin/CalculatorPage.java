@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class CalculatorPage extends AbstractPage {
 
     @FindBy(css = "form#logoutForm + a")
@@ -22,6 +24,9 @@ public class CalculatorPage extends AbstractPage {
 
     @FindBy(xpath = "//select[@name='zenklas']")
     private WebElement operation;
+
+    @FindBy(xpath = "//span[contains(@id, '.errors')]")
+    private List<WebElement> errors;
 
     public CalculatorPage(WebDriver driver) {
         super(driver);
@@ -50,5 +55,8 @@ public class CalculatorPage extends AbstractPage {
     public void setOperation(String operation) {
         Select select = new Select(this.operation);
         select.selectByValue(operation);
+    }
+    public boolean hasErrors() {
+        return !errors.isEmpty();
     }
 }
